@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salao de Beleza</title>
+    <style>
+        .body{
+            background-color: rgba(172, 122, 218, 0.705);
+        } 
+        .h1{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 140px;
+            text-align: center;
+        }
+        .menu{
+            position: relative;top: 240px;left: 700px;
+        }
+        .logo{
+            position: relative;top: 280px;left: 780px;
+        }
+
+        .jm{
+            border-radius: 10%;
+            position: relative;top: 183px;left: 700px;
+            display: none;
+            width: 400px;
+            padding-bottom: 15px;
+        }
+
+        .jm.abrir{
+            background-color: rgba(172, 122, 218, 0.377);
+            display: flex;
+        }
+
+        .menuFecha{
+            position: relative;top: 3px;
+            width: 50px;
+            height: 50px;
+        }*/
+        /*.fechar{
+            color: aliceblue;
+            background-color: rgba(255, 0, 0, 0);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+        }*/
+
+        .m{
+            width: 15%;
+            min-width: 150px;
+            min-height: 20px;
+        }
+        .icon{
+            position: relative;top: 65px;left: 70px;
+        }
+        .perfil{
+            position: relative;top: 20px;left: 100px;
+        }
+        .catalogo{
+            position: relative;top: 20px;left: 100px;
+        }
+        .agend{
+            position: relative;top: 20px;left: 100px;
+        }
+        .hist{
+            position: relative;top: 20px;left: 100px;
+        }
+        .prod{
+            position: relative;top: 20px;left: 100px;
+        }
+        .avali{
+            position: relative;top: 20px;left: 100px;
+        }
+        .sair{
+            position: relative;top: 20px;left: 100px;
+        }
+       
+
+        @media screen and (max-width : 768px){
+            h1{
+                text-align: center;
+            }
+            .logo{
+                position: relative;left: 50px;
+            }
+            .menu{
+                position: relative;left: 20px;top: 181px;
+            }
+            .jm{
+                position: relative;left: 20px;top: 124px;
+                width: 80%;
+            }
+        }
+
+        
+    </style>
+</head>
+<body class="body">
+
+    <main class="mn">
+        <h1 class="h1">Fashion Hair</h1>
+
+    <div>  
+        <div onclick="abrirModal()" >
+             <img class="menu" id="menu" src="menu-aberto (1).png" width="50px" >
+        </div>
+    </div>
+
+        <div class="jm" id="jm">
+<img class="menuFecha" id="menuFecha" src="menu-aberto (1).png" width="50px">
+        <div class="m">
+            <img src="perfil-de-usuario.png" class="icon" width="20px">
+            <a href="perfil.html">    <h3 class="perfil">Perfil</h3>       </a>
+            <a href="catalogo.html">  <h3 class="catalogo">Catalogo</h3>     </a>
+            <a href="agend.html">     <h3 class="agend">Agendamento</h3>  </a>
+            <a href="hist.html">      <h3 class="hist">Historico</h3>    </a>
+            <a href="prod.html">      <h3 class="prod">Produtos</h3>     </a>
+            <a href="avali.html">     <h3 class="avali">Avaliacao</h3>    </a>
+            <a href="index.html">     <h3 class="sair">Sair</h3>         </a>
+        </div>
+
+                    <script>
+                        function abrirModal(){
+                        const md = document.getElementById('jm')
+                        md.classList.add('abrir')
+
+                        md.addEventListener('click', (e) => {
+                            if(e.target.id === 'menuFecha' || e.target.id === 'menu'){
+                                md.classList.remove('abrir')
+                            }
+                        })
+                    }
+                    </script>
+        </div>
+
+        <img class="logo" src="logoNome.png" >
+</main>
+    </body>
+</html>

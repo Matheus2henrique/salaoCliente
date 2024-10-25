@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salao de Beleza</title>
+    <style>
+        .body{
+            background-color: rgba(172, 122, 218, 0.705);
+  
+        } 
+        .h1{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 80px;
+            text-align: center;
+        }
+        img{
+            position: relative;top: 140px;left: 780px;
+        }
+        .main{
+            position: relative;top: 180px;left: 680px;
+            padding-top: 2px;
+            border-radius: 10%;
+            padding-bottom: 15px;
+            width: 30%;
+           background-color: rgba(207, 211, 219, 0.466);
+           box-shadow: 1px 1px 22px ;
+           
+        }
+        h3{
+            position: relative;left: -60px;
+            color: aliceblue;
+        }
+        
+        .form{
+            text-align: center;
+        }
+        input{
+            background-color: aliceblue;
+            border: none;
+            border-radius: 15%;
+            padding-top: -2px;
+        }
+       .es{
+        color: red;
+        position: relative;left: -5px;
+       }
+       .entrar{
+        background-color: rgba(172, 122, 218, 0.705);
+        padding-left: 18px;
+        padding-right: 18px;
+        padding-top: 4px;
+        font-size: 16px;
+        color: rgb(112, 13, 204);
+       }
+
+        @media screen and (max-width:1768px) {
+            .main{
+            position: relative;left: 70px;top: 120px;
+            padding-top: 2px;
+            border-radius: 15%;
+            width: 70%;
+           background-color: rgba(240, 248, 255, 0.466);
+        }
+            .h1{
+                justify-content: center;
+            }
+            img{
+                position: relative;top: 140px;left: 50px;
+            }
+            .entrar{
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 3px;
+            }
+            .es{
+                position: relative;left: 2px;
+            }
+        }
+    </style>
+</head>
+<body class="body" > 
+    
+    <a href="pag1.html"><img src="voltar (1).png" width="40px"></a>
+    <h1 class="h1">Fashion Hair</h1>
+
+    <main class="main">
+       
+        <form class="form">
+            <h3>Nome</h3>
+            <input type="text">
+            <h3>E-mail</h3>
+            <input type="email">
+            <h3>Senha</h3>
+            <input type="password">
+            <br> <br>
+        <a href="home.html"><input class="entrar" type="button" value="Entrar"></a>
+        
+        <a href="senha.html"><h3 class="es">Esqueci Senha </h3></a>
+
+       </form>
+
+    </main>
+</body> 
+</html>
