@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salao de Beleza</title>
+    <style>
+        .body{
+            background-color: rgba(172, 122, 218, 0.705);
+        } 
+        .h1{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 80px;
+            text-align: center;
+        }
+        .voltar{
+            position: relative;top: 140px; left: 760px;
+        }
+        h2{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 130px;left: -25px;
+            text-align: center;
+        }
+        .servAgend{
+            color: rgb(112, 13, 204);
+            text-align: center;
+            position: relative;top: 190px;left: 840px;
+            background-color: rgba(172, 122, 218, 0.705);
+            border-radius: 10%;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            width: 170px;
+        }
+        input{
+            border: none;
+            background-color: rgba(172, 122, 218, 0.705);
+            color: rgb(112, 13, 204);
+        }
+        .js{
+            border-radius: 10%;
+            position: relative;top: 183px;left: 835px;
+            display: none;
+            width: 180px;
+            padding-bottom: 15px;
+            color: rgb(112, 13, 204);
+        }
+
+        .js.abrir{
+            background-color: rgba(172, 122, 218, 0.986);
+            display: flex;
+        }
+        .cancel{
+            position: relative;top: 215px;left: 890px;
+            width: 75px;
+            border-radius: 15%;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+        .s,.n{
+            position: relative;top: -10px;left: 50px;
+            background-color: rgba(146, 92, 197, 0.651);
+        }
+
+        .servAgend2{
+            color: rgb(112, 13, 204);
+            text-align: center;
+            position: relative;top: 250px;left: 840px;
+            background-color: rgba(172, 122, 218, 0.705);
+            border-radius: 10%;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            width: 170px;
+        }
+        .cancel2{
+            position: relative;top: 275px;left: 890px;
+            width: 75px;
+            border-radius: 15%;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+        .js2{
+            border-radius: 10%;
+            position: relative;top: 243px;left: 835px;
+            display: none;
+            width: 180px;
+            padding-bottom: 15px;
+            color: rgb(112, 13, 204);
+        }
+        .js2.abrir{
+            background-color: rgba(172, 122, 218, 0.986);
+            display: flex;
+        }
+        .s2,.n2{
+            position: relative;top: -10px;left: 50px;
+            background-color: rgba(146, 92, 197, 0.651);
+        }
+        
+
+        @media screen and (max-width: 768px){
+            .voltar{
+                position: relative;left: 50px;
+            }
+            .servAgend{
+                position: relative;left: 100px;
+            }
+            .servAgend2{
+                position: relative;left: 100px;
+            }
+            .cancel{
+                position: relative;left: 145px;
+            }
+            .cancel2{
+                position: relative;left: 145px;
+            }
+            .js{
+                position: relative;left: 95px;
+            }
+            .js2{
+                position: relative;left: 95px;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    
+    
+    <!-- <a href="home.html"> -->
+        <img class="voltar" src="voltar (1).png" width="40px" onclick="window.location.href='home.html'"> 
+<!-- </a> -->
+    <h1 class="h1">Fashion Hair</h1>
+
+    <h2>Agendamentos</h2>
+
+<div class="td">
+
+    <div class="servAgend">
+        <h3 class="primeiAgend">Corte de Cabelo<br>
+        Dia : 12 <br>
+        As 11 horas </h3>
+    </div>
+
+    <div>
+        <div onclick="abrirModal()">
+            <form>
+                <input class="cancel" id="cancel" type="button" value="Cancelar">
+            </form>
+        </div>
+    </div>
+
+        <div class="js" id="js">
+            <div>
+                <h4>Voce tem certeza que deseja cancelar o servico?</h4>
+                <form class="primeBot">
+                    <input class="s" id="s" type="button" value="Sim">
+                    <input class="n" id="n" type="button" value="Nao">
+                </form>
+            </div>
+
+            <script>
+                function abrirModal(){
+                const md = document.getElementById('js')
+                md.classList.add('abrir')
+
+                md.addEventListener('click', (e) => {
+                if(e.target.id === 's' || e.target.id === 'n'   || e.target.id === 'cancel2'){
+                md.classList.remove('abrir');
+                }
+                    });
+                }
+            </script>
+        </div>
+
+        <div class="servAgend2">
+            <h3 class="segundAgend">Corte de Cabelo<br>
+            Dia : 12 <br>
+            As 11 horas </h3>
+        </div>
+
+        <div>
+            <div onclick="abrirModal2()">
+                <form>
+                    <input class="cancel2" id="cancel2" type="button" value="Cancelar">
+                </form>
+            </div>
+        </div>
+    
+            <div class="js2" id="js2">
+                <div>
+                    <h4>Voce tem certeza que deseja cancelar o servico?</h4>
+                    <form class="segunBot">
+                        <input class="s2" id="s2" type="button" value="Sim">
+                        <input class="n2" id="n2" type="button" value="Nao">
+                    </form>
+                </div>
+    
+                <script>
+                    function abrirModal2(){
+                    const md = document.getElementById('js2')
+                    md.classList.add('abrir')
+    
+                    md.addEventListener('click', (e) => {
+                    if(e.target.id === 's2' || e.target.id === 'n2' || e.target.id ==='cancel'){
+                    md.classList.remove('abrir');
+                    }
+                        });
+                    }
+                </script>
+            </div>
+</div>    
+
+</body>
+</html>

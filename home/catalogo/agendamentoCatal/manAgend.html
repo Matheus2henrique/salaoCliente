@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salao de Beleza</title>
+    <style>
+        .body{
+            background-color: rgba(172, 122, 218, 0.705);
+        } 
+        .agendCort{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 120px;left: -20px;
+            text-align: center;
+        }
+        .corte{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 140px;left: -20px;
+            text-align: center;
+        }
+        .h1{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 80px;
+            text-align: center;
+        }
+        .voltar{
+            position: relative;top: 140px; left: 760px;
+        }
+        .cv{
+            color: rgb(112, 13, 204);
+            position: relative;top: 180px;left: 980px;
+            text-align: center;
+        }
+        .exit{
+            color: rgb(112, 13, 204);
+            position: relative;top: 200px;left: -130px;
+            text-align: center;
+        }
+        #calendar-container {
+            display: flex;
+            justify-content: center;
+        }
+        #calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        table {
+            position: relative;left: -1px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        th {
+            background-color: lightgray;
+        }
+        .today {
+            background-color: #1e90ff;
+        }
+        #month-year {
+            grid-column: 1 / -1;
+        }
+        .highlight {
+            background-color: lightblue;
+        }
+        .jm { 
+            border-radius: 10%;
+            text-align: center;
+            position: relative;top: 200px;left: 750px;
+            display: none;
+            width: 400px;
+            padding-bottom: 15px;
+        }
+        .jm.abrir {
+            background-color: rgba(104, 100, 107, 0.377);
+            display: flex;
+        }
+        input{
+            width: 75px;
+            border: none;
+            border-radius: 5%;
+            background-color: rgba(172, 122, 218, 0.705);
+            position: relative;top: 210px;left: 870px;
+        }
+        .cal{
+            position: relative;top: -58.3px;left: 230px;
+        }
+        .conf{
+            width: 75px;
+            border: none;
+            border-radius: 5%;
+            background-color: rgba(172, 122, 218, 0.705);
+            position: relative;top: 350px;
+            padding-top: 4px;
+            padding-left: 14px;
+            padding-right: 18px;
+            padding-bottom: 4px;
+        }
+
+        @media screen and (max-width:768px) {
+            .voltar{
+                position: relative;left: 40px;
+            }
+            input{
+                position: relative;left: 140px;
+            }
+            .cv{
+                position: relative;left: 230px;
+            }
+            .cal{
+                position: relative;left: 210px;
+            }
+            .jm{
+                position: relative;left: 20px;
+                width: 85%;
+            }
+            .conf{
+                position: relative;top: 280px;left: 140px;
+            }
+            table{
+                position: relative;left: -25px;top: -10px;
+            }
+        }
+
+    </style>
+</head>
+<body class="body">
+    
+<!--     <a href="home.html"> -->
+        <img class="voltar" src="voltar (1).png" width="40px" onclick="window.location.href='home.html'"> 
+<!--     </a> -->
+    <h1 class="h1">Fashion Hair</h1>
+
+    <h2 class="agendCort">Agendamento</h2> 
+    <h3 class="corte"> Manicure</h3>
+
+    <form >
+        <input type="text" placeholder="mm/dd/yyyy">
+    </form>
+
+    <div onclick="abrirModal()">
+        <img src="calen.png" id="cv" class="cv" width="35px">
+    </div>
+
+    <div class="jm" id="jm">
+<img src="calen.png" id="cal" class="cal" width="35px" height="35px">   
+
+        <div class="cont" id="cont">
+
+            <div id="calendar-container">
+                <div id="calendar"></div>
+            </div>
+                
+            <script>
+                const calendar = document.getElementById('calendar');
+                const today = new Date();
+                const currentMonth = today.getMonth();
+                const currentYear = today.getFullYear();
+                
+                function createCalendar(month, year) {
+                    const monthNames = ['Jan', 'Fev', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+                    const totalDays = new Date(year, month + 1, 0).getDate();
+                    const firstDayIndex = new Date(year, month, 1).getDay();
+
+                    let html = `<h2 id="month-year">${monthNames[month]} ${year}</h2>`;
+                    html += '<table>';
+                    html += '<tr><th> Dom </th><th> Seg </th><th> Ter </th><th> Qua </th><th> Qui </th><th> Sex </th><th>Sab</th></tr>';
+
+                    let day = 1;
+                    for (let i = 0; i < 6; i++) {
+                        html += '<tr>';
+                        for (let j = 0; j < 7; j++) {
+                            if (i === 0 && j < firstDayIndex) {
+                                html += '<td></td>';
+                            } else if (day > totalDays) {
+                                html += '<td></td>';
+                            } else {
+                                let date = new Date(year, month, day);
+                                html += `<td ${date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear() ? 'class="today"' : ''}>${day}</td>`;
+                                day++;
+                            }
+                        }
+                        html += '</tr>';
+                    }
+                    html += '</table>';
+
+                    calendar.innerHTML = html;
+                    const cells = calendar.getElementsByTagName('td');
+                    for (const cell of cells) {
+                        cell.addEventListener('click', () => {
+                            const md = document.getElementById('jm');
+                            md.classList.remove('abrir'); 
+                        });
+                    }
+                
+                }
+
+                createCalendar(currentMonth, currentYear);
+
+                document.addEventListener('mouseover', function(event) {
+                    if (event.target.tagName === 'TD') {
+                        event.target.classList.add('highlight');
+                    }
+                });
+
+                document.addEventListener('mouseout', function(event) {
+                    if (event.target.tagName === 'TD') {
+                        event.target.classList.remove('highlight');
+                    }
+                });
+            </script>
+        </div>
+
+        <script>
+            function abrirModal(){
+            const md = document.getElementById('jm')
+            md.classList.add('abrir')
+
+            md.addEventListener('click', (e) => {
+                if(e.target.id === 'cal' ){
+                    md.classList.remove('abrir')
+                }
+            })
+             }
+        </script>
+
+    </div>
+
+    <div>
+
+        <form >
+            <input type="time" placeholder="hh:mm">
+        </form>
+
+    </div>
+
+    <form >
+<!--         <a href="agend.html">    -->
+            <input class="conf" type="button" value="Confirmar" onclick="window.location.href='agend.html'">    
+<!--         </a> -->
+    </form>
+
+</body>
+</html>

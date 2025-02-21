@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salao de Beleza</title>
+    <style>
+        .body{
+            background-color: rgba(172, 122, 218, 0.705);
+        } 
+        .h1{
+            color: rgb(112, 13, 204);
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;top: 80px;
+            text-align: center;
+        }
+        .voltar{
+            position: relative;top: 140px; left: 760px;
+        }
+        h2{
+            color: rgb(112, 13, 204);
+            position: relative;top: 25px;
+        }
+        h3{
+            color:rgb(112, 13, 204) ;
+            position: relative;top: 35px;
+        }
+        input{
+            background-color: rgba(172, 122, 218, 0.705);
+            border: none;
+            border-radius: 5%;
+            width: 155px;
+            padding-top: 8px;
+            padding: 90px;
+            padding-bottom: 8px;
+            position: relative;top: 55px;left: 17px;
+        }
+        img{
+            text-align: center;
+        }
+        main{
+            text-align: center;
+            position: relative;top: 150px;left: -25px; 
+        }
+        button{
+            color: rgb(112, 13, 204);
+            padding: 15px;
+            border-radius: 15%;
+            position: relative;top: 85px;
+            background-color: rgba(172, 122, 218, 0.705);
+            border: none;
+        }
+        .logo{
+            position: relative;top: 280px;left: 110px;
+        }
+
+        @media screen and (max-width: 768px){
+            .voltar{
+                position: relative;left: 35px;
+            }
+            img{
+                position: relative;left: 10px;
+            }
+            h2{
+                position: relative;left: 10px;
+            }
+            h3{
+                position: relative;left: 5px;
+            }
+            input{
+                position: relative;left: 6px;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    
+    <!-- <a href="catalogo.html"> --> 
+        <img class="voltar" src="voltar (1).png" width="40px" onclick="window.location.href='catalogo.html'">
+<!-- </a> -->
+    <h1 class="h1">Fashion Hair</h1>
+
+    
+    <main>
+
+    <form>
+        <input type="text">
+    </form>
+        <!-- <a href="home.html"> --> 
+            <button value="Enviar" type="submit" onclick="window.location.href='home.html'">Enviar</button>
+    <!-- </a> -->
+    </main>
+    <img class="logo" src="logo.png" width="180px">
+
+</body>
+</html>
